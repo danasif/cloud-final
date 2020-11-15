@@ -33,13 +33,13 @@ export class RegisterCourseComponent implements OnInit {
   ngOnInit() {
     this.registerCourseForm = this.formBuilder.group({
       pieceName: [''],
-      tags: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
+      tags: [''],
       createdDate: [''],
       imageLink: [''],
       artistName: [''],
       favorited: false,
-      medium: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
-      pieceInfo: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]]
+      medium: [''],
+      pieceInfo: ['']
 
     });
 
