@@ -5,7 +5,7 @@
     <mat-card-title-group>
       <mat-card-title><img src= {{course.imageLink}}></mat-card-title>
       <mat-card-title>{{course.pieceName}}</mat-card-title>
-      <mat-card-subtitle>Created by {{course.createdBy.username}} on {{course.createdDate | date}}</mat-card-subtitle>
+      <mat-card-subtitle>Created by {{course.artistName}} on {{course.createdDate | date}}</mat-card-subtitle>
       <!--<mat-card-subtitle>Ends on {{course.endDate | date}}</mat-card-subtitle> -->
       <mat-card-subtitle>{{course.medium}}</mat-card-subtitle>
     </mat-card-title-group>
@@ -17,17 +17,7 @@
     <button mat-icon-button [matMenuTriggerFor]="menu" >
       <mat-icon>more_vert</mat-icon>
     </button>
-     <mat-menu #menu="matMenu">
-      <button mat-menu-item  *ngIf="isProf" (click)="attendance(course._id)">
-        <mat-icon>add</mat-icon>
-        <span>Add attendance tracker</span>
-      </button>
-
-      <button mat-menu-item  *ngIf="isProf" (click)="delete(course._id)">
-        <mat-icon>delete</mat-icon>
-        <span>Delete course</span>
-      </button>
-    </mat-menu>
+   
 
 
 
