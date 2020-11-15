@@ -30,17 +30,14 @@
 <!--    TODO: look at HW4 and modify the buttons in a way where students only see the 'view button' if they are registered for the course. Professors will only see 'view'
            Clicking View will invoke differnt functions inside home.component.ts depending on whether it was clicked by professor or student.
 -->
-   <button mat-menu-item  *ngIf="isProf " (click) = "viewCourseAttendances(course._id)" >
-        <mat-icon>view</mat-icon>
+   <button mat-menu-item   (click) = "viewCourseAttendances(course._id)" >
+        <mat-icon>visibility</mat-icon>
         <span>View picture</span>
       </button>
-      <button mat-menu-item  *ngIf="isProf==false && added ==false" (click)="register(course._id)" >
-        <mat-icon>add</mat-icon>
-        <span>Add course</span>
+       <button mat-menu-item   (click) = "delete(course._id)" >
+        <mat-icon>delete</mat-icon>
+        <span>Delete picture</span>
       </button>
-      <button mat-menu-item  *ngIf="added "  (click)="viewStudentAttendances(course._id)" >
-        <mat-icon>view</mat-icon>
-        <span>View course</span>
-      </button>
+     
   </mat-card-actions>
 </mat-card>
