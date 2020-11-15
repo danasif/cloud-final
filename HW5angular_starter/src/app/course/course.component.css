@@ -1,0 +1,25 @@
+.course-card {
+  flex: 1;
+  box-sizing: border-box;
+  -webkit-box-flex: 1;
+  -ms-box-flex: 1;
+  -moz-box-flex: 1;
+  padding: 3px 3px 3px 3px;
+  width:350px;
+
+}
+
+.course-image {
+  
+}
+
+.mat-card-header {
+  background-color: #BBBBBB;
+  color: white;
+  height: 100%;
+  width: 100%;
+}
+img{
+    height: 200px;
+    width: 200px;
+}
