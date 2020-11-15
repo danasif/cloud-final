@@ -42,7 +42,7 @@ const routes: Routes = [{path: '', component: HomeComponent, canActivate: [AuthG
     data: { roles: [Role.student] }
   },
   {
-    path: 'getArtistProfile',
+    path: 'getArtistPictures',
     component: StudentattendancesComponent,
     canActivate: [AuthGuard],
     // The prof route also sets the roles data property to [Role.Admin] so only admin users can access it.

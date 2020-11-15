@@ -32,7 +32,7 @@ async function getPicture(id) {
 }
 async function getArtistPictures(artist) {
     console.log("We're in here, the artist name is "+ artist);
-    const test = await Course.find({'artistName':mongoose.Types.ObjectId(artist)});
+    const test = await Course.find({'artistName':artist});
     console.log("The response is " + test);
     return test;
 
