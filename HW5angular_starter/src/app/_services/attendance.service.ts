@@ -14,7 +14,7 @@ export class AttendanceService {
 
     // TODO: make a get request to the back end such that it sends two parameters:'courseID' and 'studentID'. 
     //Hint: depending on how you send this data, on the back end you can read it either via 'req.params' or 'req.query'.
-    viewStudentAttendances(courseID: string, studentID: string) {
+    viewArtistPage(courseID: string, studentID: string) {
         let obj = 
         {
            "courseid": courseID,
@@ -26,7 +26,7 @@ export class AttendanceService {
     }
 
     //TODO: make a get request to the back end . This is similar to viewStudentAttendances except here you should send only courseID.
-    viewCourseAttendances(courseID: string) {
+    viewPicturePage(courseID: string) {
       
         let obj = 
         {

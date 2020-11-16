@@ -19,8 +19,8 @@ import {ErrorInterceptor} from './_interceptors/error.interceptor';
 import {AttendanceCheckComponent} from './attendanceCheck/attendanceCheck.component';
 
 import { AttendancecreatorComponent } from './attendancecreator/attendancecreator.component';
-import { StudentattendancesComponent } from './studentattendances/studentattendances.component';
-import { ClassattendancesComponent } from './classattendances/classattendances.component';
+import { artistPageComponent } from './artistpage/artistpage.component';
+import { PicturePageComponent } from './picturePage/picturePage.component';
 
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
@@ -36,8 +36,8 @@ import {SimpleService } from './_services/simpleService.service';
     AdminComponent,
     AttendanceCheckComponent,
     AttendancecreatorComponent,
-    StudentattendancesComponent,
-    ClassattendancesComponent
+    artistPageComponent,
+    PicturePageComponent
 
   ],
     imports: [

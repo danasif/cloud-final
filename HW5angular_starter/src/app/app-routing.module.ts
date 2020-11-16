@@ -11,8 +11,8 @@ import {AdminComponent} from './admin/admin.component';
 import {AttendanceCheckComponent} from './attendanceCheck/attendanceCheck.component';
 
 import {AttendancecreatorComponent} from './attendancecreator/attendancecreator.component';
-import {StudentattendancesComponent} from './studentattendances/studentattendances.component';
-import {ClassattendancesComponent} from './classattendances/classattendances.component';
+import {artistPageComponent} from './artistpage/artistpage.component';
+import {PicturePageComponent} from './picturePage/picturePage.component';
 
 //TODO: do not forget to register the components here.
 
@@ -42,22 +42,22 @@ const routes: Routes = [{path: '', component: HomeComponent, canActivate: [AuthG
     data: { roles: [Role.student] }
   },
   {
-    path: 'getArtistPictures',
-    component: StudentattendancesComponent,
+    path: 'artistpage',
+    component: artistPageComponent,
     canActivate: [AuthGuard],
     // The prof route also sets the roles data property to [Role.Admin] so only admin users can access it.
     data: { roles: [Role.professor, Role.student] }
   },
   {
     path: 'getPicture',
-    component: ClassattendancesComponent,
+    component: PicturePageComponent,
   
     // The prof route also sets the roles data property to [Role.Admin] so only admin users can access it.
    
   },
   {
     path: 'course',
-    component: ClassattendancesComponent,
+    component: PicturePageComponent,
     canActivate: [AuthGuard],
     // The prof route also sets the roles data property to [Role.Admin] so only admin users can access it.
     data: { roles: [Role.professor] }

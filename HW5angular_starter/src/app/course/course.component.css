@@ -14,12 +14,12 @@
 }
 
 .mat-card-header {
-  background-color: #BBBBBB;
+  
   color: white;
   height: 100%;
   width: 100%;
 }
 img{
-    height: 200px;
-    width: 200px;
+    height: 250px;
+    width: 250px;
 }

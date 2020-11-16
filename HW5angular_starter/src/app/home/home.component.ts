@@ -97,12 +97,12 @@ export class HomeComponent implements OnInit {
 
 
   //TODO: this is very similar to 'createAttendance()' except here you pass two bits of information to 'studentattendances' component: courseID and studentID. Again, use Router's navigate function to pass information to the other component. Hint: you can use 'this.currentUser._id' to get studentID.
-  viewStudentAttendances(id: string) {
-    this.router.navigate(['/studentAttendances']);
+  viewArtistPage(id: string) {
+    this.router.navigate(['/artistpage']);
   }
 
   // TODO:  use Router's navigate function to pass courseID to the 'classattendances' component.
-  viewCourseAttendances(id: string) {
+  viewPicturePage(id: string) {
     console.log("HIIIIII");
 
     this.router.navigate(['/getPicture']);

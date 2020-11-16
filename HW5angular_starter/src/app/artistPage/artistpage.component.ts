@@ -5,11 +5,11 @@ import {ActivatedRoute} from '@angular/router';
 
 
 @Component({
-  selector: 'app-studentattendances',
-  templateUrl: './studentattendances.component.html',
-  styleUrls: ['./studentattendances.component.css']
+  selector: 'app-artistpage',
+  templateUrl: './artistpage.component.html',
+  styleUrls: ['./artistpage.component.css']
 })
-export class StudentattendancesComponent implements OnInit {
+export class artistPageComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private courseService: CourseService,  private simpleService: SimpleService) { }
 

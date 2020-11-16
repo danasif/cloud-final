@@ -7,13 +7,13 @@ import {first} from 'rxjs/operators';
 import { Course } from '../_models/course';
 
 @Component({
-  selector: 'app-classattendances',
-  templateUrl: './classattendances.component.html',
-  styleUrls: ['./classattendances.component.css']
+  selector: 'app-picturepage',
+  templateUrl: './picturepage.component.html',
+  styleUrls: ['./picturepage.component.css']
 })
 
 
-export class ClassattendancesComponent implements OnInit {
+export class PicturePageComponent implements OnInit {
 
 
   constructor(private router: Router, private route: ActivatedRoute,      private simpleService: SimpleService,
@@ -84,7 +84,7 @@ this.route.params.subscribe(params => {
   artistProfile(artist: string) {
     console.log("getting artist here");
     this.simpleService.student = artist;
-    this.router.navigate(['/getArtistPictures']);
+    this.router.navigate(['/artistpage']);
   }
 }
 
