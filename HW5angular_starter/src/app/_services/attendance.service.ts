@@ -12,20 +12,20 @@ import {Attendance} from '../_models/attendance';
 export class AttendanceService {
     constructor(private http: HttpClient) { }
 
-    // TODO: make a get request to the back end such that it sends two parameters:'courseID' and 'studentID'. 
+    // TODO: make a get request to the back end such that it sends two parameters:'courseID' and 'userID'. 
     //Hint: depending on how you send this data, on the back end you can read it either via 'req.params' or 'req.query'.
-    viewArtistPage(courseID: string, studentID: string) {
+    viewArtistPage(courseID: string, userID: string) {
         let obj = 
         {
            "courseid": courseID,
-           "studentID ": studentID
+           "userID ": userID
         };
         console.log("We made here at least");
-        return this.http.get<any>(`http://localhost:4000/attendance/student${courseID}`) //finish this
+        return this.http.get<any>(`http://localhost:4000/attendance/user${courseID}`) //finish this
 
     }
 
-    //TODO: make a get request to the back end . This is similar to viewStudentAttendances except here you should send only courseID.
+    //TODO: make a get request to the back end . This is similar to viewuserAttendances except here you should send only courseID.
     viewPicturePage(courseID: string) {
       
         let obj = 

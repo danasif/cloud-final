@@ -15,11 +15,14 @@
 
 .mat-card-header {
   
-  color: white;
+
   height: 100%;
   width: 100%;
 }
 img{
     height: 250px;
     width: 250px;
+}
+button{
+  border : hidden;
 }

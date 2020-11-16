@@ -113,8 +113,8 @@ async function attend(req) {
 }
 
 
-// TODO: here you need to process professor requests to create new attendance objects.
-//  Hint: you can retrieve professor's ObjectId via 'req.user.sub' and use it to fill the missing field in the request body.
+// TODO: here you need to process creator requests to create new attendance objects.
+//  Hint: you can retrieve creator's ObjectId via 'req.user.sub' and use it to fill the missing field in the request body.
 async function createAttendance(req) {
     
     let attendance = req.body

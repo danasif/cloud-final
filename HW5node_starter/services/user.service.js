@@ -42,7 +42,7 @@ async function getById(id) {
 // Useful Hint: Recall that JWT token already contains user id and with each client request the 'req' object is modified to include user id in req.user.sub
 async function registerCourse(req){
     //TODO: Do not allow students to register more than five course.
-    //TODO: On the angular side you will need to hide the 'add' button from the professors,
+    //TODO: On the angular side you will need to hide the 'add' button from the creators,
     // however, you should still block them from adding courses here as well.
     console.log(req);
     console.log(req.User);

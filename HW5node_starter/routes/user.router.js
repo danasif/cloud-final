@@ -8,7 +8,7 @@ const authorize = require('../_helpers/authorize');
 router.post('/authenticate', userController.authenticate);
 router.post('/register', userController.register);
 router.post('/registercourse',authorize(Role.student), userController.registerCourse);
-router.get('/allusers', authorize(Role.professor),userController.getAllUsers);
+router.get('/allusers', authorize(Role.creator),userController.getAllUsers);
 
 
 module.exports = router;

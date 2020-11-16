@@ -30,8 +30,8 @@ export class CourseComponent implements OnInit {
 
 
 
-  get isProf() {
-      return this.userRole && this.userRole === Role.professor;
+  get isCreator() {
+      return this.userRole && this.userRole === Role.creator;
   }
 
    constructor(private notifService: NotificationService, private authService: AuthService, private simpleService: SimpleService, private courseService: CourseService ) {}
@@ -43,7 +43,7 @@ export class CourseComponent implements OnInit {
 
         this.userRole = x.role;
         this.userId = x._id;
-        console.log(this.courseService.getEnrolledStudents(this.course._id));
+        console.log(this.courseService.getEnrolledusers(this.course._id));
 
 
         }}
@@ -83,11 +83,11 @@ export class CourseComponent implements OnInit {
       this.PicturePageEvent.emit(id);
     }
 
-    // this is for the student
+    // this is for the user
     viewArtistPage(id: string ) {
       this.simpleService.id = id;
       console.log('The user id is ' + this.userId);
-      this.simpleService.student = this.userId;
+      this.simpleService.user = this.userId;
 
       this.artistPageEvent.emit(id);
     }

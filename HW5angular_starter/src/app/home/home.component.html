@@ -15,14 +15,11 @@
 
 
 
-<div class="fab-container"  *ngIf="isProf">
+<div class="fab-container"  *ngIf="isCreator">
   <button  mat-flat-button color="primary"  matTooltip="Add new class" (click)= createCourse()>
     <i class="material-icons">add</i>
   </button>
   </div>
-  <div class="fab-container"  *ngIf="isProf==false">
-  <button  mat-flat-button color="accent"  matTooltip="Attend class" (click)= trackAttendance() >
-    <i class="material-icons">check</i>
-  </button>
-<!--  TODO: add another version of mat-flat-button that student will only students see. Hint: use *ngIf and isProf.-->
-</div>
+  
+<!--  TODO: add another version of mat-flat-button that user will only users see. Hint: use *ngIf and isCreator.-->
+

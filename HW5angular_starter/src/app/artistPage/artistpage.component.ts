@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material';
 import {AttendanceService, CourseService, SimpleService} from '../_services';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 
 @Component({
@@ -11,7 +11,8 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class artistPageComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private courseService: CourseService,  private simpleService: SimpleService) { }
+  constructor(private route: ActivatedRoute, private courseService: CourseService,    private router: Router,
+    private simpleService: SimpleService) { }
 
   color = 'red';
   mode = 'determinate';
@@ -40,7 +41,7 @@ export class artistPageComponent implements OnInit {
     // -- compute the attendance rate for 'attendanceRate
 
     //this.courseID = this.simpleService.id;
-    this.artistName = this.simpleService.student;
+    this.artistName = this.simpleService.user;
     console.log('The course id is ' + this.courseID);
 this.route.params.subscribe(params => {
      // this.courseID = params.courseID;
@@ -89,9 +90,13 @@ this.route.params.subscribe(params => {
   }
 
 
-  // Hint: create a helper function that will compute how many times the student has attended.
+  // Hint: create a helper function that will compute how many times the user has attended.
   // getAttended(temp): number {
   //
   // }
+  viewPicturePage(id: string) {
+    console.log("HIIIIII");
 
+    this.router.navigate(['/getPicture']);
+  }
 }

@@ -8,9 +8,7 @@ import {RegisterCourseComponent} from './registerCourse/registerCourse.component
 import {Role} from './_models/role';
 import {AuthGuard} from './_guards/auth.guard';
 import {AdminComponent} from './admin/admin.component';
-import {AttendanceCheckComponent} from './attendanceCheck/attendanceCheck.component';
 
-import {AttendancecreatorComponent} from './attendancecreator/attendancecreator.component';
 import {artistPageComponent} from './artistpage/artistpage.component';
 import {PicturePageComponent} from './picturePage/picturePage.component';
 
@@ -23,30 +21,18 @@ const routes: Routes = [{path: '', component: HomeComponent, canActivate: [AuthG
     path: 'admin',
     component: AdminComponent,
     canActivate: [AuthGuard],
-    // The prof route also sets the roles data property to [Role.professor] so only admin users can access it.
-    data: { roles: [Role.professor] }
+    // The prof route also sets the roles data property to [Role.creator] so only admin users can access it.
+    data: { roles: [Role.creator] }
   },
 
-  {
-    path: 'createAttendance',
-    component: AttendancecreatorComponent,
-    canActivate: [AuthGuard],
-    // The prof route also sets the roles data property to [Role.Admin] so only admin users can access it.
-    data: { roles: [Role.professor] }
-  },
-  {
-    path: 'trackAttendance',
-    component: AttendanceCheckComponent,
-    canActivate: [AuthGuard],
-    // The prof route also sets the roles data property to [Role.Admin] so only admin users can access it.
-    data: { roles: [Role.student] }
-  },
+ 
+  
   {
     path: 'artistpage',
     component: artistPageComponent,
     canActivate: [AuthGuard],
     // The prof route also sets the roles data property to [Role.Admin] so only admin users can access it.
-    data: { roles: [Role.professor, Role.student] }
+    data: { roles: [Role.creator, Role.user] }
   },
   {
     path: 'getPicture',
@@ -60,7 +46,7 @@ const routes: Routes = [{path: '', component: HomeComponent, canActivate: [AuthG
     component: PicturePageComponent,
     canActivate: [AuthGuard],
     // The prof route also sets the roles data property to [Role.Admin] so only admin users can access it.
-    data: { roles: [Role.professor] }
+    data: { roles: [Role.creator] }
   },
 
   { path: '**', redirectTo: '' }];

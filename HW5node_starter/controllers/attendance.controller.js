@@ -39,7 +39,7 @@ function deleteAttendance(req,res,next){
 }
 
 
-//TODO: here you handle professors request to retrieve a list of attendances for a given course.
+//TODO: here you handle creators request to retrieve a list of attendances for a given course.
 function getAttendances(req,res,next){
     attendanceService.getAttendances(req.params.id).then(attendances => {console.log('# of attendances sent:', attendances.length);
     res.json(attendances)}).catch(err => next(err));

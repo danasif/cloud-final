@@ -19,9 +19,9 @@ export class CourseService {
 
 
     //TODO: notice this new function.
-    getEnrolledStudents(courseID: string) {
-        console.log("The returning values are " +this.http.get<any>(`http://localhost:4000/course/getstudents${courseID}`));
-        return this.http.get<any>(`http://localhost:4000/course/getstudents${courseID}`);
+    getEnrolledusers(courseID: string) {
+        console.log("The returning values are " +this.http.get<any>(`http://localhost:4000/course/getusers${courseID}`));
+        return this.http.get<any>(`http://localhost:4000/course/getusers${courseID}`);
     }
 
 

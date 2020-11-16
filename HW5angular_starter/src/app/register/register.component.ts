@@ -44,8 +44,8 @@ export class RegisterComponent implements OnInit {
 
     });
 
-    this.roles = [{name: 'Student'},
-      {name: 'Professor'}];
+    this.roles = [{name: 'user'},
+      {name: 'creator'}];
   }
 
   // convenience getter for easy access to form fields

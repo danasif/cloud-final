@@ -22,8 +22,8 @@ export class AppComponent {
     this.authService.currentUser.subscribe(x => this.currentUser = x);
   }
 
-  get isProf() {
-     return this.currentUser && this.currentUser.role === Role.professor;
+  get isCreator() {
+     return this.currentUser && this.currentUser.role === Role.creator;
   }
 
   get isUser() {

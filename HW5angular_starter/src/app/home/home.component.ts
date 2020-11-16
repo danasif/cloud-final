@@ -51,15 +51,15 @@ export class HomeComponent implements OnInit {
 
   }
 
-  // TODO: call this function when student's want to track attendance.
+  // TODO: call this function when user's want to track attendance.
   //  Use Router's route function to navigate to the 'attendancetracker' component.
   trackAttendance() {
     this.router.navigate(['/trackAttendance']);
   }
 
-  //TODO: use this getter in the HTML to hid the buttons that professor's shouldn't see.
-  get isProf(){
-      return this.currentUser.role === Role.professor;
+  //TODO: use this getter in the HTML to hid the buttons that creator's shouldn't see.
+  get isCreator(){
+      return this.currentUser.role === Role.creator;
   }
 
   deleteCourse(id: string) {
@@ -69,13 +69,13 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  //TODO: here you receive the id of the course that the student wants to register. Use userService to complete this request.
+  //TODO: here you receive the id of the course that the user wants to register. Use userService to complete this request.
   registerCourse(id: string) {
     console.log("testing");
     this.userService.registerCourse(id).pipe(first())
     .subscribe(
         () => {
-         this.notifService.showNotif('Student has  added the course', 'confirmation');
+         this.notifService.showNotif('user has  added the course', 'confirmation');
 
         },
         error => {
@@ -87,7 +87,7 @@ export class HomeComponent implements OnInit {
       //  return this.http.post(`http://localhost:4000/user/registercourse`, id);
       }
 
-  //TODO: here you receive the id of the course for which a professor wants to create a new attendance object.
+  //TODO: here you receive the id of the course for which a creator wants to create a new attendance object.
   // you will 'carry' that course id to the 'attendancecreator' component that will be opened shortly after the button click.
   // use Router's navigate function to pass information to the other component.
   createAttendance(id: string) {
@@ -96,7 +96,7 @@ export class HomeComponent implements OnInit {
   }
 
 
-  //TODO: this is very similar to 'createAttendance()' except here you pass two bits of information to 'studentattendances' component: courseID and studentID. Again, use Router's navigate function to pass information to the other component. Hint: you can use 'this.currentUser._id' to get studentID.
+  //TODO: this is very similar to 'createAttendance()' except here you pass two bits of information to 'userattendances' component: courseID and userID. Again, use Router's navigate function to pass information to the other component. Hint: you can use 'this.currentUser._id' to get userID.
   viewArtistPage(id: string) {
     this.router.navigate(['/artistpage']);
   }

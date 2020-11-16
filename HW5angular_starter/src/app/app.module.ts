@@ -16,9 +16,7 @@ import { AdminComponent } from './admin/admin.component';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {JwtInterceptor} from './_interceptors/jwt.interceptor';
 import {ErrorInterceptor} from './_interceptors/error.interceptor';
-import {AttendanceCheckComponent} from './attendanceCheck/attendanceCheck.component';
 
-import { AttendancecreatorComponent } from './attendancecreator/attendancecreator.component';
 import { artistPageComponent } from './artistpage/artistpage.component';
 import { PicturePageComponent } from './picturePage/picturePage.component';
 
@@ -34,8 +32,7 @@ import {SimpleService } from './_services/simpleService.service';
     RegisterComponent,
     RegisterCourseComponent,
     AdminComponent,
-    AttendanceCheckComponent,
-    AttendancecreatorComponent,
+    
     artistPageComponent,
     PicturePageComponent
 
