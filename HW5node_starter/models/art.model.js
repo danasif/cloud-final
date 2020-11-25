@@ -5,9 +5,9 @@ const Schema = mongoose.Schema;
 //https://mongoosejs.com/docs/populate.html#populate_an_existing_mongoose_document
 
 const schema = new Schema({
-   /* courseNumber: { type: Number, required: true },
-    courseDept: { type: String, required: true },
-    courseDescription: { type: String, required: true, default:"No description set" },
+   /* artNumber: { type: Number, required: true },
+    artDept: { type: String, required: true },
+    artDescription: { type: String, required: true, default:"No description set" },
     createdBy: { type: Schema.Types.ObjectId, ref: 'User' },
     createdDate: { type: Date, default: Date.now },
     startDate: { type: Date, default: Date.now },
@@ -25,11 +25,12 @@ const schema = new Schema({
     pieceInfo: {type: String, required: true},
     dateCreated: { type: Date, default: Date.now },
     imageLink: {type: String, required: true},
-
+    liked: {type: Boolean, default: false},
+    likeTotal: {type: Number,default: 0},
 });
 
-schema.index({courseNumber:1, courseDeptCode:1}, { unique: false });
+schema.index({artNumber:1, artDeptCode:1}, { unique: false });
 
 schema.set('toJSON', { virtuals: true });
 
-module.exports = mongoose.model('Course', schema);
+module.exports = mongoose.model('Art', schema);

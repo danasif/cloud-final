@@ -5,7 +5,7 @@ module.exports = {
     authenticate,
     getAllUsers,
     register,
-    registerCourse
+    registerArt
 };
 
 
@@ -31,15 +31,15 @@ function register(req, res, next) {
 }
 
 
-function registerCourse(req, res, next) {
+function registerArt(req, res, next) {
     console.log("helloooooo");
     console.log(req);
     //console.log(req.User);
     //console.log(res);
   //  console.log("The body is " +req.);
-    userService.registerCourse(req)
+    userService.registerArt(req)
         .then(() => res.json({}))
         .catch(err => next(err));
-    //TODO: handle student requests to register courses.
+    //TODO: handle student requests to register arts.
 
 }

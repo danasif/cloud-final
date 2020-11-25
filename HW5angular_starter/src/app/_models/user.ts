@@ -6,5 +6,5 @@ export class User {
     password: string;
     role: Role;
     token?: string;
-    courses: string[];
+    arts: string[];
    }

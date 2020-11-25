@@ -4,16 +4,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { NotificationService } from '../_services/notification.service';
-import { CourseService } from '../_services/course.service';
+import { ArtService } from '../_services/art.service';
 import { AuthService } from '../_services/auth.service';
 
-@Component({templateUrl: 'registerCourse.component.html',
+@Component({templateUrl: 'registerArt.component.html',
 
-  styleUrls: ['registerCourse.component.css']
+  styleUrls: ['registerArt.component.css']
 
 })
-export class RegisterCourseComponent implements OnInit {
-  registerCourseForm: FormGroup;
+export class RegisterArtComponent implements OnInit {
+  registerArtForm: FormGroup;
   loading = false;
   submitted = false;
 
@@ -23,7 +23,7 @@ export class RegisterCourseComponent implements OnInit {
       private formBuilder: FormBuilder,
       private router: Router,
       private authService: AuthService,
-      private courseService: CourseService,
+      private artService: ArtService,
       private notification: NotificationService
   ) {
     // redirect to home if already logged in
@@ -31,9 +31,9 @@ export class RegisterCourseComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.registerCourseForm = this.formBuilder.group({
+    this.registerArtForm = this.formBuilder.group({
       pieceName: [''],
-      tags: [''],
+      tagList: [''],
       createdDate: [''],
       imageLink: [''],
       artistName: [''],
@@ -48,19 +48,20 @@ export class RegisterCourseComponent implements OnInit {
 
   // convenience getter for easy access to form fields
   get f() {
-    return this.registerCourseForm.controls; }
+    return this.registerArtForm.controls; }
 
   onSubmit() {
     console.log('Within on sumbit');
     this.submitted = true;
     // stop here if form is invalid
-    if (this.registerCourseForm.invalid) {
+    if (this.registerArtForm.invalid) {
       console.log('Error in onSubmit()');
       return;
     }
 
     this.loading = true;
-    this.courseService.createCourse(this.registerCourseForm.value)
+  
+    this.artService.createArt(this.registerArtForm.value)
         .pipe(first())
         .subscribe(
             data => {

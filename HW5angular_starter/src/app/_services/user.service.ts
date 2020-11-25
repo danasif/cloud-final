@@ -24,13 +24,13 @@ export class UserService {
 
 
   //TODO- No: make a post request that will simply send a json like this {courseid: id}
-  registerCourse(id: string) {
+  registerArt(id: string) {
    console.log("into the woods" + id);
    let obj = 
    {
-      "courseid": id
+      "artid": id
    };
-    return this.http.post(`http://localhost:4000/user/registerCourse`, obj);
+    return this.http.post(`http://localhost:4000/user/registerart`, obj);
 
 
   }

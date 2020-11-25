@@ -1,19 +1,20 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {MatDialog, MatDialogConfig} from '@angular/material';
-import {Course} from '../_models/course';
+import {Art} from '../_models/art';
 import {User} from '../_models/user';
-import {NotificationService, AuthService, SimpleService, CourseService} from '../_services';
+import {NotificationService, AuthService, SimpleService, ArtService} from '../_services';
 import {Role} from '../_models/role';
+import { first } from 'rxjs/operators';
 
 
 @Component({
   // tslint:disable-next-line:component-selector
-  selector: 'course-component',
-  templateUrl: './course.component.html',
-  styleUrls: ['./course.component.css']
+  selector: 'art-component',
+  templateUrl: './art.component.html',
+  styleUrls: ['./art.component.css']
 })
-export class CourseComponent implements OnInit {
-  @Input() course: Course;
+export class ArtComponent implements OnInit {
+  @Input() art: Art;
   @Input() user: User;
   @Output() deleteEvent = new EventEmitter<string>();
   // TODO: notice the new event emmiters. This will communicate user interactions with this component to the home component.
@@ -34,16 +35,16 @@ export class CourseComponent implements OnInit {
       return this.userRole && this.userRole === Role.creator;
   }
 
-   constructor(private notifService: NotificationService, private authService: AuthService, private simpleService: SimpleService, private courseService: CourseService ) {}
+   constructor(private notifService: NotificationService, private authService: AuthService, private simpleService: SimpleService, private artService: ArtService ) {}
 
   ngOnInit() {
     this.authService.currentUser.subscribe(x => {
         if (x) {
-        this.registeredList = x.courses;
+        this.registeredList = x.arts;
 
         this.userRole = x.role;
         this.userId = x._id;
-        console.log(this.courseService.getEnrolledusers(this.course._id));
+        console.log(this.artService.getEnrolledusers(this.art._id));
 
 
         }}
@@ -54,11 +55,20 @@ export class CourseComponent implements OnInit {
   delete(id) {
     this.deleteEvent.emit(id);
   }
-  fav() {
-    this.favorite = true;
+  fav(id) {
+    this.artService.favorite(id).pipe(first()).subscribe(() => {
+      
+    //  this.loadAllClasses();
+    });
+    this.art.favorited = true;
+
   }
-  unfav() {
+  unfav(id) {
     this.favorite = false;
+    this.art.favorited = false;
+
+    this.artService.unfavorite(id);
+
   }
 
   register(id) {
@@ -78,7 +88,7 @@ export class CourseComponent implements OnInit {
 
     // this is for the prof
     viewPicturePage(id: string) {
-      console.log('viewing course');
+      console.log('viewing art');
       this.simpleService.id = id;
       this.PicturePageEvent.emit(id);
     }

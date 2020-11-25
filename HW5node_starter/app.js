@@ -21,7 +21,7 @@ app.use(cors());
 app.use(jwt());
 
 app.use('/user', require('./routes/user.router'));
-app.use('/course', require('./routes/course.router'));
+app.use('/art', require('./routes/art.router'));
 app.use('/attendance', require('./routes/attendance.router'));
 
 //TODO: need to connect '/attendance' routes to the router.

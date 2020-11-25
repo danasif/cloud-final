@@ -1,10 +1,11 @@
 
-export class Course {
+export class Art {
 
   
   pieceName: string;
-  tags: string;
-  courseDescription: string;
+  tags: string[];
+  tagList: string;
+  artDescription: string;
   createdBy: {username: string};
   artistName: string;
   favorited: boolean

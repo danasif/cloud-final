@@ -9,7 +9,7 @@ module.exports = {
     getAllUsers,
     getById,
     addUser,
-    registerCourse
+    registerArt
 
 }
 
@@ -38,27 +38,27 @@ async function getById(id) {
     return await User.find({_id:id});
 }
 
-//TODO: finish this function. Here you should insert the course 'id' into the User document.
+//TODO: finish this function. Here you should insert the art 'id' into the User document.
 // Useful Hint: Recall that JWT token already contains user id and with each client request the 'req' object is modified to include user id in req.user.sub
-async function registerCourse(req){
-    //TODO: Do not allow students to register more than five course.
+async function registerArt(req){
+    //TODO: Do not allow students to register more than five art.
     //TODO: On the angular side you will need to hide the 'add' button from the creators,
-    // however, you should still block them from adding courses here as well.
+    // however, you should still block them from adding arts here as well.
     console.log(req);
     console.log(req.User);
     const user = await User.findOne({_id:req.user.sub});
-    if(user.courses.length < 5){
+    if(user.arts.length < 5){
         //
-        console.log("We made it, the course we are add is "+ req.body.courseid);
-        if (await User.findOne({ courses: req.body.courseid})) {
+        console.log("We made it, the art we are add is "+ req.body.artid);
+        if (await User.findOne({ arts: req.body.artid})) {
             throw 'User has already signed up ';
         }
         else{
-        return await User.updateOne({_id:req.user.sub}, {$push: {courses:req.body.courseid}})
+        return await User.updateOne({_id:req.user.sub}, {$push: {arts:req.body.artid}})
         } // User is the user database, try 
     }
     else{
-        throw ' Course limit of 5 has been reached ';
+        throw ' Art limit of 5 has been reached ';
 
     }
     //TODO: send a message to users if the limit is reached.

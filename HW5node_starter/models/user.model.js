@@ -9,9 +9,9 @@ const schema = new Schema({
         lastName: { type: String, required: true },
         role: {type:String, required: true},
         createdDate: { type: Date, default: Date.now },
-        courses: [{ type:  Schema.Types.ObjectId, ref: 'Course' }]
+        //arts: [{ type:  Schema.Types.ObjectId, ref: 'Art' }]
 
-        //TODO: allow students to keep a list of ObjectId of the courses that they signed up for
+        //TODO: allow students to keep a list of ObjectId of the arts that they signed up for
 
     }
 );

@@ -22,7 +22,7 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/services/course.service.js">
+        <entry file="file://$PROJECT_DIR$/services/art.service.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="345">
               <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
@@ -58,7 +58,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/course.model.js">
+        <entry file="file://$PROJECT_DIR$/models/art.model.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
               <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
@@ -139,7 +139,7 @@
         <option value="$PROJECT_DIR$/_helpers/role.js" />
         <option value="$PROJECT_DIR$/_helpers/dbsimulator.js" />
         <option value="$PROJECT_DIR$/_helpers/authorize.js" />
-        <option value="$PROJECT_DIR$/models/course.model.js" />
+        <option value="$PROJECT_DIR$/models/art.model.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/routes/user.router.js" />
         <option value="$PROJECT_DIR$/_helpers/jwt.js" />
@@ -151,10 +151,10 @@
         <option value="$PROJECT_DIR$/controllers/attendance.controller.js" />
         <option value="$PROJECT_DIR$/services/attendance.service.js" />
         <option value="$PROJECT_DIR$/_helpers/database.js" />
-        <option value="$PROJECT_DIR$/controllers/course.controller.js" />
-        <option value="$PROJECT_DIR$/routes/course.router.js" />
+        <option value="$PROJECT_DIR$/controllers/art.controller.js" />
+        <option value="$PROJECT_DIR$/routes/art.router.js" />
         <option value="$PROJECT_DIR$/controllers/user.controller.js" />
-        <option value="$PROJECT_DIR$/services/course.service.js" />
+        <option value="$PROJECT_DIR$/services/art.service.js" />
         <option value="$PROJECT_DIR$/config.json" />
       </list>
     </option>
@@ -330,7 +330,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/course.router.js">
+    <entry file="file://$PROJECT_DIR$/routes/art.router.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
@@ -344,7 +344,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/course.controller.js">
+    <entry file="file://$PROJECT_DIR$/controllers/art.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="555">
           <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
@@ -386,7 +386,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/services/course.service.js">
+    <entry file="file://$PROJECT_DIR$/services/art.service.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
@@ -407,7 +407,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/course.model.js">
+    <entry file="file://$PROJECT_DIR$/models/art.model.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />

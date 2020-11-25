@@ -6,6 +6,6 @@ mongoose.connect(process.env.MONGODB_URI || config.connectionString, { useCreate
 
 module.exports = {
     User: require('../models/user.model'),
-    Course: require('../models/course.model'),
+    Art: require('../models/art.model'),
     Attendance: require('../models/attendance.model')
     };

@@ -7,12 +7,12 @@ const Schema = mongoose.Schema;
 const schema = new Schema({
     //TODO: need to define the following in this schema:
     // -'prof' -- the author of the attendance tracker),
-    // -'course' -- object ID of the course for which this attendance is going to count
+    // -'art' -- object ID of the art for which this attendance is going to count
     // -'startTime -- date for when this starts
     // -'duration' -- minutes after which the accessCode is considered expired
     // - 'accessCode' -- has to be unique
-    prof: { type: String, required: true },
-    course: { type: String, required: true },
+   // prof: { type: String, required: true },
+    art: { type: String, required: true },
     startTime: { type: Date, default: Date.now,  required: true },
     //startTimeHourMinute: { type: Time,  required: true },
     
@@ -26,8 +26,8 @@ const schema = new Schema({
 
 });
 
-//this makes startTime and course object id unique because it makes no sense to have two identical attendance tracker documents.
-schema.index({startTime:1, course:1}, { unique: true });
+//this makes startTime and art object id unique because it makes no sense to have two identical attendance tracker documents.
+schema.index({startTime:1, art:1}, { unique: true });
 
 schema.set('toJSON', { virtuals: true });
 

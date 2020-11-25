@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material';
-import {AttendanceService, CourseService, SimpleService} from '../_services';
+import { ArtService, SimpleService} from '../_services';
 import {ActivatedRoute, Router} from '@angular/router';
 
 
@@ -11,7 +11,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class artistPageComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private courseService: CourseService,    private router: Router,
+  constructor(private route: ActivatedRoute, private artService: ArtService,    private router: Router,
     private simpleService: SimpleService) { }
 
   color = 'red';
@@ -19,7 +19,7 @@ export class artistPageComponent implements OnInit {
   temp = [];
   attendanceRate = 0;
   dataSource;
-  courseID;
+  artID;
   artistName;
  attendanceTotal;
  attendCount= 0;
@@ -40,13 +40,13 @@ export class artistPageComponent implements OnInit {
     // -- produce and array of JSONs with 'startTime', 'missed' and populate the Angular material table
     // -- compute the attendance rate for 'attendanceRate
 
-    //this.courseID = this.simpleService.id;
+    //this.artID = this.simpleService.id;
     this.artistName = this.simpleService.user;
-    console.log('The course id is ' + this.courseID);
+    console.log('The art id is ' + this.artID);
 this.route.params.subscribe(params => {
-     // this.courseID = params.courseID;
+     // this.artID = params.artID;
 
-      this.courseService.getArtist( this.artistName).subscribe((Response: any) => {
+      this.artService.getArtist( this.artistName).subscribe((Response: any) => {
         console.log(Response);
         console.log(Response.list);
         this.attendanceTotal =  Response.length;

@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 
-import {Course} from '../_models/course';
+import {Art} from '../_models/art';
 import {NotificationService} from '../_services/notification.service';
-import {CourseService} from '../_services/course.service';
+import {ArtService} from '../_services/art.service';
 import {first} from 'rxjs/operators';
 import {Route, Router} from '@angular/router';
 import {UserService, AuthService} from '../_services';
@@ -16,9 +16,9 @@ import { HttpClient } from '@angular/common/http';
 export class HomeComponent implements OnInit {
   currentUser: User;
 
-  courses: Course[] = [];
+  arts: Art[] = [];
     constructor(
-    private courseService: CourseService,
+    private artService: ArtService,
     private userService: UserService,
     private authService: AuthService,
     private notifService: NotificationService,
@@ -38,16 +38,16 @@ export class HomeComponent implements OnInit {
 
   private loadAllClasses() {
 
-    this.courseService.getAll().subscribe(
-      courses => {this.courses = courses; },
+    this.artService.getAll().subscribe(
+      arts => {this.arts = arts; },
         error => {this.notifService.showNotif(error, 'error'); });
   }
 
-  createCourse() {
+  createArt() {
     // TODO:You need to use a Router instnace to navigate the user to the
-    // 'coursecreator' component's route.
-    // This will load the 'coursecreator' component
-    this.router.navigate(['/registerCourse']);
+    // 'artcreator' component's route.
+    // This will load the 'artcreator' component
+    this.router.navigate(['/registerArt']);
 
   }
 
@@ -62,20 +62,20 @@ export class HomeComponent implements OnInit {
       return this.currentUser.role === Role.creator;
   }
 
-  deleteCourse(id: string) {
-    this.courseService.delete(id).pipe(first()).subscribe(() => {
-      this.courses = null;
+  deleteArt(id: string) {
+    this.artService.delete(id).pipe(first()).subscribe(() => {
+      this.arts = null;
       this.loadAllClasses();
     });
   }
 
-  //TODO: here you receive the id of the course that the user wants to register. Use userService to complete this request.
-  registerCourse(id: string) {
+  //TODO: here you receive the id of the art that the user wants to register. Use userService to complete this request.
+  registerArt(id: string) {
     console.log("testing");
-    this.userService.registerCourse(id).pipe(first())
+    this.userService.registerArt(id).pipe(first())
     .subscribe(
         () => {
-         this.notifService.showNotif('user has  added the course', 'confirmation');
+         this.notifService.showNotif('user has  added the art', 'confirmation');
 
         },
         error => {
@@ -84,11 +84,11 @@ export class HomeComponent implements OnInit {
           //this.loading = false;
         });
         this.router.navigate(['/']);
-      //  return this.http.post(`http://localhost:4000/user/registercourse`, id);
+      //  return this.http.post(`http://localhost:4000/user/registerart`, id);
       }
 
-  //TODO: here you receive the id of the course for which a creator wants to create a new attendance object.
-  // you will 'carry' that course id to the 'attendancecreator' component that will be opened shortly after the button click.
+  //TODO: here you receive the id of the art for which a creator wants to create a new attendance object.
+  // you will 'carry' that art id to the 'attendancecreator' component that will be opened shortly after the button click.
   // use Router's navigate function to pass information to the other component.
   createAttendance(id: string) {
     console.log("hello world, the id is" + id);
@@ -96,12 +96,12 @@ export class HomeComponent implements OnInit {
   }
 
 
-  //TODO: this is very similar to 'createAttendance()' except here you pass two bits of information to 'userattendances' component: courseID and userID. Again, use Router's navigate function to pass information to the other component. Hint: you can use 'this.currentUser._id' to get userID.
+  //TODO: this is very similar to 'createAttendance()' except here you pass two bits of information to 'userattendances' component: artID and userID. Again, use Router's navigate function to pass information to the other component. Hint: you can use 'this.currentUser._id' to get userID.
   viewArtistPage(id: string) {
     this.router.navigate(['/artistpage']);
   }
 
-  // TODO:  use Router's navigate function to pass courseID to the 'classattendances' component.
+  // TODO:  use Router's navigate function to pass artID to the 'classattendances' component.
   viewPicturePage(id: string) {
     console.log("HIIIIII");
 

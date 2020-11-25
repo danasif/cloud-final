@@ -1,13 +1,13 @@
-<div class="course-list-container">
+<div class="art-list-container">
 
 
-    <!--                   TODO: you must handle the new "@Output"s from the course component-->
-  <course-component class="card-item"  *ngFor="let course of courses" [course]="course"
-                    (artistPageEvent)=  " viewArtistPage($event)" (PicturePageEvent)=  "viewPicturePage($event)" (registerEvent) = "registerCourse($event)"  (deleteEvent) = "deleteCourse($event)"  (createAttendanceEvent) = "createAttendance($event)">
+    <!--                   TODO: you must handle the new "@Output"s from the art component-->
+  <art-component class="card-item"  *ngFor="let art of arts" [art]="art"
+                    (artistPageEvent)=  " viewArtistPage($event)" (PicturePageEvent)=  "viewPicturePage($event)" (registerEvent) = "registerArt($event)"  (deleteEvent) = "deleteArt($event)"  (createAttendanceEvent) = "createAttendance($event)">
 
 
 
-                    </course-component>
+                    </art-component>
 
 
 
@@ -16,7 +16,7 @@
 
 
 <div class="fab-container"  *ngIf="isCreator">
-  <button  mat-flat-button color="primary"  matTooltip="Add new class" (click)= createCourse()>
+  <button  mat-flat-button color="primary"  matTooltip="Add new class" (click)= createArt()>
     <i class="material-icons">add</i>
   </button>
   </div>

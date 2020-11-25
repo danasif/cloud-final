@@ -43,7 +43,7 @@ In addition, you can get an observable from behavior subject using the asObserva
         .pipe(map(user => {
           // login successful if there's a jwt token in the response
           if (user && user.token) {
-             // user.courses = [];
+             // user.arts = [];
             // store user details and jwt token in local storage to keep user logged in between page refreshes
               localStorage.setItem('currentUser', JSON.stringify(user));
               this.currentUserSubject.next(user);
@@ -61,9 +61,9 @@ In addition, you can get an observable from behavior subject using the asObserva
   }
 
 
-  addCourseId(id: string) {
+  addArtId(id: string) {
    const user = JSON.parse(localStorage.getItem('currentUser'));
-   user.courses.push(id);
+   user.arts.push(id);
    localStorage.setItem('currentUser', JSON.stringify(user));
    this.currentUserSubject.next(user);
   }

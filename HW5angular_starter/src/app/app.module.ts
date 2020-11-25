@@ -5,12 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { CourseComponent } from './course/course.component';
+import { ArtComponent } from './art/art.component';
 import {MaterialModule} from './material-module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
-import { RegisterCourseComponent } from './registerCourse/registerCourse.component';
+import { RegisterArtComponent } from './registerArt/registerArt.component';
 
 import { AdminComponent } from './admin/admin.component';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
@@ -28,9 +28,9 @@ import {SimpleService } from './_services/simpleService.service';
     AppComponent,
     LoginComponent,
     HomeComponent,
-    CourseComponent,
+    ArtComponent,
     RegisterComponent,
-    RegisterCourseComponent,
+    RegisterArtComponent,
     AdminComponent,
     
     artistPageComponent,

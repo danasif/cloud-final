@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material';
 import {ActivatedRoute, Router} from '@angular/router';
-import {AttendanceService, NotificationService, CourseService, SimpleService} from '../_services';
+import {NotificationService, SimpleService} from '../_services';
+import { ArtService } from '../_services/art.service';
 
 import {first} from 'rxjs/operators';
-import { Course } from '../_models/course';
+import { Art } from '../_models/art';
 
 @Component({
   selector: 'app-picturepage',
@@ -18,35 +19,35 @@ export class PicturePageComponent implements OnInit {
 
   constructor(private router: Router, private route: ActivatedRoute,      private simpleService: SimpleService,
 
-              private attendanceService: AttendanceService, private courseService: CourseService, private notification: NotificationService, ) {
+               private artService: ArtService, private notification: NotificationService, ) {
   }
   test: any;
   report = [];
-  courseID  = '';
+  artID  = '';
   public users: any = [];
   public attends: any = [];
   attendanceTotal = -100000000;
   userTotal ;
-  courseAttendances = [];
+  artAttendances = [];
   public weather: any[] = [];
   attended = 0;
   total = 0;
   displayedColumns: string[] = ['username', 'firstName', 'lastName', 'attendanceRate', 'id'];
   dataSource =this.users;
-  picture: Course;
+  picture: Art;
   ngOnInit() {
 // TODO: here you should do the following:
-//  -- get courseID from the route params (already done)
-//  -- fetch the 'attendances' associated with this course
-//  -- get a list of users enrolled in this course
+//  -- get artID from the route params (already done)
+//  -- fetch the 'attendances' associated with this art
+//  -- get a list of users enrolled in this art
 //  -- populate the 'Angular material' table with data that matches the columns specified by 'displayedColumns'
-this.courseID = this.simpleService.id;
-console.log('The course id is ' + this.courseID);
+this.artID = this.simpleService.id;
+console.log('The art id is ' + this.artID);
 this.route.params.subscribe(params => {
-     // this.courseID = params.courseID;
-      console.log('The course id is ' + this.courseID);
+     // this.artID = params.artID;
+      console.log('The art id is ' + this.artID);
 
-      this.courseService.getPicture(this.courseID).subscribe((Response: any) => {
+      this.artService.getPicture(this.artID).subscribe((Response: any) => {
         console.log(Response);
         this.picture  = Response[0];
         console.log("The picure " + this.picture);
@@ -70,7 +71,7 @@ this.route.params.subscribe(params => {
   }
 
 
-  // TODO: you need to produce an array of JSON with the following fields: 'username', 'firstName', 'lastName', 'attendanceRate', 'id'. Create a "getter" that will process the 'user' and 'courseAttendances' arrays to produce an array of JSONS suitable for the Angular material table.
+  // TODO: you need to produce an array of JSON with the following fields: 'username', 'firstName', 'lastName', 'attendanceRate', 'id'. Create a "getter" that will process the 'user' and 'artAttendances' arrays to produce an array of JSONS suitable for the Angular material table.
   // Hint: a possible way to solve this requires two nested loops + map.
    get producePerPersonaAttendanceReport() {
     const obj = {
@@ -80,7 +81,7 @@ this.route.params.subscribe(params => {
    }
 
   // TODO: create a fucntion that will use 'router' to navigate the creator to 'userattendnaces' component.
-  // You must pass courseID and userID.
+  // You must pass artID and userID.
   artistProfile(artist: string) {
     console.log("getting artist here");
     this.simpleService.user = artist;

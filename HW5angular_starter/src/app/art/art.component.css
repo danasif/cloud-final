@@ -1,4 +1,4 @@
-.course-card {
+.art-card {
   flex: 1;
   box-sizing: border-box;
   -webkit-box-flex: 1;
@@ -9,7 +9,7 @@
 
 }
 
-.course-image {
+.art-image {
   
 }
 

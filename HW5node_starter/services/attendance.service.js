@@ -2,9 +2,9 @@
 
 const db = require('../_helpers/database');
 const mongoose = require("mongoose");
-const courseService = require('./course.service');
+const artService = require('./art.service');
 const User = db.User;
-const Course = db.Course;
+const Art = db.Art;
 const Attendance = db.Attendance;
 
 
@@ -21,21 +21,21 @@ module.exports = {
 //TODO: you need to produce an array of JSONs with 'sartTime' (Date), 'missed' (Boolean). It is up to you whether to do it here or in the controller.
 async function studentGetAttendances(id) {
     console.log("We're in here");
-    const test = await Attendance.find({'course':mongoose.Types.ObjectId(id)});
+    const test = await Attendance.find({'art':mongoose.Types.ObjectId(id)});
     console.log("The response is " + test);
     return test;
 
 
 }
 
-//TODO: here you provide a list of attendances for a given course ID.
+//TODO: here you provide a list of attendances for a given art ID.
 // Remember that on the Angular side the component wants to display  'username', 'firstName', 'lastName', 'attendanceRate', 'id'. Hint: use Mongoose's .populate({path:'...', select:'field1 field2 field3'});
 async function getAttendances(id) {
     
-    const test = await Attendance.find({'course':mongoose.Types.ObjectId(id)});
+    const test = await Attendance.find({'art':mongoose.Types.ObjectId(id)});
     console.log("The response is " + test);
     return test;
-    //return await Attendance.find({'_id': req.body.courseid}).select('-hash -attendances');
+    //return await Attendance.find({'_id': req.body.artid}).select('-hash -attendances');
 
 }
 
@@ -54,7 +54,7 @@ async function deleteAttendance(req) {
 //  -- invalid access code,
 //  -- expired access code,
 //  -- used access code (already attended),
-//  -- not enrolled in the course Hint: use
+//  -- not enrolled in the art Hint: use
 //  'new Date(...).getTime()' to measure expiration.
 //  Keep in mind that that getTime() return milliseconds
 //  and we want to measure difference in minutes.
@@ -62,38 +62,38 @@ async function attend(req) {
 
     console.log("The access code is: " + req.body.accessCode );
     console.log("The user is " + req.user.sub);
-    const user = await User.findOne({_id:req.user.sub}); // the user is registered for the course
+    const user = await User.findOne({_id:req.user.sub}); // the user is registered for the art
     const attendance = await Attendance.findOne({accessCode:req.body.accessCode}); // find the Attanced object that matches the code 
     if(attendance == null){
         throw  "Invalid  access code,  inncorect number";
     }
-    const course = await Course.findOne({_id: attendance.course});
-    if(course == null){
-        throw  "Invalid  access code, couldn't find course";
+    const art = await Art.findOne({_id: attendance.art});
+    if(art == null){
+        throw  "Invalid  access code, couldn't find art";
     }
-    console.log("We got here", course._id);
+    console.log("We got here", art._id);
 
-    console.log("We got here",user.courses[3] );
+    console.log("We got here",user.arts[3] );
     var i;
     var check = false;
     for(i =0; i<5; i++){
-        var c = user.courses[i];
+        var c = user.arts[i];
         c = String(c);
-        if(c.localeCompare(course._id) == 0){
+        if(c.localeCompare(art._id) == 0){
             console.log("The user is registered");
             check = true;
             break;
         }
     }
     if(check == false){
-        throw  "The user is not registered for the course";
+        throw  "The user is not registered for the art";
     }
     console.log(attendance.students.size);
     console.log(attendance.students.length);
     for(i =0; i<attendance.students.length; i++){
         console.log(attendance.students[i]);
         if(String(attendance.students[i]).localeCompare(user._id) == 0){
-            throw "The user has already attended the course";
+            throw "The user has already attended the art";
             
         }
     }
@@ -120,18 +120,18 @@ async function createAttendance(req) {
     let attendance = req.body
 
     // validate
-    /*if (await Attendance.findOne({ courseNumber: course.courseNumber, courseDept: course.courseDept  })) {
-        throw 'Course "' + course.courseDept + course.courseNumber +'" already exists';
+    /*if (await Attendance.findOne({ artNumber: art.artNumber, artDept: art.artDept  })) {
+        throw 'Art "' + art.artDept + art.artNumber +'" already exists';
     }*/
    
     if(req == null){
         throw 'Error with the user submitting request. User information missing. Malformed request.';
     }
-    //populate missing fields in the course object
+    //populate missing fields in the art object
     console.log("The user is " + req.user.sub);
     console.log("got to here");
     attendance = new Attendance(attendance);
-    attendance.prof = req.user.sub;
+    //attendance.prof = req.user.sub;
     console.log("got to here2");
     console.log(attendance);
 

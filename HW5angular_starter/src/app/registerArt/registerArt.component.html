@@ -1,8 +1,8 @@
-<form [formGroup]="registerCourseForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="registerArtForm" (ngSubmit)="onSubmit()">
     <mat-card class="registration-card">
         <mat-card-header>
 
-            <mat-card-title>Course Registration</mat-card-title>
+            <mat-card-title>Art Registration</mat-card-title>
 
         </mat-card-header>
 
@@ -21,10 +21,10 @@
 
             <div class="form-group">
                 <mat-form-field>
-                    <input matInput placeholder="Tags" type="text" formControlName="tags" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.tags.errors }">
-                    <mat-hint *ngIf="submitted && f.tags.errors" >
-                        <mat-hint *ngIf="f.tags.errors.required">Tags is required</mat-hint>
-                        <mat-hint *ngIf="f.tags.errors.pattern">Tags is using illegal characters.</mat-hint>
+                    <input matInput placeholder="Tags, comma separted" type="text" formControlName="tagList" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.tagList.errors }">
+                    <mat-hint *ngIf="submitted && f.tagList.errors" >
+                        <mat-hint *ngIf="f.tagList.errors.required">Tags is required</mat-hint>
+                        <mat-hint *ngIf="f.tagList.errors.pattern">Tags is using illegal characters.</mat-hint>
                     </mat-hint>
                 </mat-form-field>
             </div>
