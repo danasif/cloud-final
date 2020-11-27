@@ -6,7 +6,7 @@ const authorize = require('../_helpers/authorize');
 
 
 router.post('/addart', artController.createArt);
-router.post('/addart2', artController.favoriteArt);
+router.post('/edit', artController.editArt);
 
 router.post('/like', artController.likeArt);
 router.post('/unlike', artController.unlikeArt);
@@ -17,6 +17,7 @@ router.get('/getarts', artController.getArts);
 router.delete('/:id',authorize(Role.creator), artController.deleteArt);
 router.get('/getPicture:id', artController.getPicture);
 router.get('/getArtistPictures:artist', artController.getArtistPictures);
+router.get('/getSearch:word', artController.getSearch);
 
 //TODO: notice this new route.It retrieves all students enrolled in a given art.
 router.get('/getstudents:id',authorize(Role.creator), artController.getEnrolledStudents);

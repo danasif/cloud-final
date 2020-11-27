@@ -28,7 +28,7 @@ export class ArtComponent implements OnInit {
      added = false ;
      userId = '';
      favorite = false;
-
+    username;
 
 
   get isCreator() {
@@ -41,7 +41,7 @@ export class ArtComponent implements OnInit {
     this.authService.currentUser.subscribe(x => {
         if (x) {
         this.registeredList = x.arts;
-
+        this.username = this.simpleService.username;
         this.userRole = x.role;
         this.userId = x._id;
         console.log(this.artService.getEnrolledusers(this.art._id));
@@ -57,22 +57,46 @@ export class ArtComponent implements OnInit {
   }
   fav(id) {
     this.artService.favorite(id).pipe(first()).subscribe(() => {
-      
+
     //  this.loadAllClasses();
     });
     this.art.favorited = true;
 
   }
   unfav(id) {
-    this.favorite = false;
+    this.artService.unfavorite(id).pipe(first()).subscribe(() => {
+
+      //  this.loadAllClasses();
+      });
     this.art.favorited = false;
 
-    this.artService.unfavorite(id);
+  }
+  like(id) {
+    console.log("liking");
+    var value = this.art.likeTotal + 1;
+    this.artService.like(id, value).pipe(first()).subscribe(() => {
+
+      //  this.loadAllClasses();
+      });
+    this.art.liked = true;
+
+  }
+  unlike(id) {
+    console.log("unliking");
+    var value = this.art.likeTotal - 1;
+    if( value < 0){
+      value =0;
+    }
+    this.artService.unlike(id,value).pipe(first()).subscribe(() => {
+
+      //  this.loadAllClasses();
+      });
+    this.art.liked = false;
 
   }
 
   register(id) {
-    console.log('Is this  this?'+ id);
+    console.log('Is this  this?' + id);
     this.simpleService.id = id;
     this.added = true;
     this.registerEvent.emit(id);

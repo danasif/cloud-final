@@ -23,6 +23,7 @@ import { PicturePageComponent } from './picturePage/picturePage.component';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
 import {SimpleService } from './_services/simpleService.service';
+import { EditArtComponent } from './editArt/editArt.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,7 @@ import {SimpleService } from './_services/simpleService.service';
     ArtComponent,
     RegisterComponent,
     RegisterArtComponent,
+    EditArtComponent,
     AdminComponent,
     
     artistPageComponent,

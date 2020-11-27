@@ -1,4 +1,4 @@
-<form [formGroup]="registerArtForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="editArtForm" (ngSubmit)="onSubmit()">
     <mat-card class="registration-card">
         <mat-card-header>
 
@@ -29,16 +29,6 @@
                 </mat-form-field>
             </div>
 
-
-            <div class="form-group">
-                <mat-form-field>
-                    <input matInput placeholder="Created date" type="date" formControlName="createdDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.createdDate.errors }">
-                    <mat-hint *ngIf="submitted && f.createdDate.errors" >
-                        <mat-hint *ngIf="f.createdDate.errors.required">created Date is required</mat-hint>
-                        <mat-hint *ngIf="f.createdDate.errors.pattern">created Date is typed with errors.</mat-hint>
-                    </mat-hint>
-                </mat-form-field>
-            </div>
  <div class="form-group">
                 <mat-form-field>
                     <input matInput placeholder="imageLink" type="text" formControlName="imageLink" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.imageLink.errors }">
@@ -47,15 +37,7 @@
                     </mat-hint>
                 </mat-form-field>
             </div>
-            <div class="form-group">
-                <mat-form-field>
-                    <input matInput placeholder="artistName" type="text" formControlName="artistName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.artistName.errors }">
-                    <mat-hint *ngIf="submitted && f.artistName.errors" >
-                        <mat-hint *ngIf="f.artistName.errors.required">artistName is required</mat-hint>
-                       
-                    </mat-hint>
-                </mat-form-field>
-            </div>
+           
 
             <div class="form-group">
                 <mat-form-field>

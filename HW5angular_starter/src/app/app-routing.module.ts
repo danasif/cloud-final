@@ -12,12 +12,15 @@ import {AdminComponent} from './admin/admin.component';
 import {artistPageComponent} from './artistpage/artistpage.component';
 import {PicturePageComponent} from './picturePage/picturePage.component';
 import {RegisterArtComponent} from './registerArt/registerArt.component';
+import { EditArtComponent } from './editArt/editArt.component';
 
 //TODO: do not forget to register the components here.
 
 const routes: Routes = [{path: '', component: HomeComponent, canActivate: [AuthGuard]}, {path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent },
   { path: 'registerArt', component: RegisterArtComponent },
+  { path: 'editArt', component: EditArtComponent },
+
   {
     path: 'admin',
     component: AdminComponent,

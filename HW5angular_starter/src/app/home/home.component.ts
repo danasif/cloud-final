@@ -107,5 +107,19 @@ export class HomeComponent implements OnInit {
 
     this.router.navigate(['/getPicture']);
   }
+  sort(){
+    this.arts = this.arts.sort((n1,n2) => {
+      console.log(n1.likeTotal,  " <" , n2.likeTotal );
+      if (n1.likeTotal < n2.likeTotal) {
+          return -1;
+      }
+      if (n1.likeTotal > n2.likeTotal) {
+          return 1;
+      }
+      return 0;
+  });
+
+
+  }
 }
 

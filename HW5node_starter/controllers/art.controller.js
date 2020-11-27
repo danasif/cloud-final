@@ -2,7 +2,7 @@ const artService = require('../services/art.service')
 
 module.exports = {
     createArt,
-    createArt2,
+    editArt,
     getArts,
     deleteArt,
     getEnrolledStudents,
@@ -11,7 +11,8 @@ module.exports = {
     likeArt,
     unlikeArt,
     favoriteArt,
-    unfavoriteArt
+    unfavoriteArt,
+    getSearch,
 };
 
 
@@ -22,24 +23,17 @@ function createArt(req, res, next) {
         .catch(err => next(err));
 
 }
-function createArt2(req, res, next) {
 
-    console.log("hi");
-    artService.addArt(req)
-        .then((message) => res.json(message))
-        .catch(err => next(err));
-
-}
 function likeArt(req, res, next) {
 
-    artService.like(req.params.id)
+    artService.like(req)
         .then((message) => res.json(message))
         .catch(err => next(err));
 
 }
 function unlikeArt(req, res, next) {
 
-    artService.unlike(req.params.id)
+    artService.unlike(req)
         .then((message) => res.json(message))
         .catch(err => next(err));
 
@@ -55,7 +49,14 @@ function favoriteArt(req, res, next) {
 }
 function unfavoriteArt(req, res, next) {
 
-    artService.unfavorited(req.params.id)
+    artService.unfavorited(req)
+        .then((message) => res.json(message))
+        .catch(err => next(err));
+
+}
+function editArt(req, res, next) {
+
+    artService.edit(req)
         .then((message) => res.json(message))
         .catch(err => next(err));
 
@@ -68,6 +69,11 @@ function getPicture(req,res,next){
 function getArtistPictures(req,res,next){
     console.log('THe params are ',req.params);
     artService.getArtistPictures(req.params.artist).then(arts => {console.log('# of Arts sent:', arts.length);
+        res.json(arts)}).catch(err => next(err));
+}
+function getSearch(req,res,next){
+    console.log('THe params are ',req.params);
+    artService.getSearch(req.params.word).then(arts => {console.log('# of Arts sent:', arts.length);
         res.json(arts)}).catch(err => next(err));
 }
 function getArts(req,res,next){

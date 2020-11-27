@@ -4,5 +4,6 @@ import { Injectable } from '@angular/core';
 export class SimpleService {
    public id  = '';
    public user = '';
+   public username = '';
    constructor() { }
 }

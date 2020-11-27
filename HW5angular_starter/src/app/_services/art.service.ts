@@ -47,10 +47,35 @@ export class ArtService {
 
     }
     unfavorite(artID: string) {
-      
+        let obj = 
+        {
+           "artID": artID,
+        };
        
         //console.log("We are wanting a picture, the art id is " + artID);
-        return this.http.post(`http://localhost:4000/art/unfavorite`, artID);
+        return this.http.post(`http://localhost:4000/art/unfavorite`, obj);
+    }
+    like(artID: string, total: number) {
+
+        let obj = 
+        {
+           "artID": artID,
+           "value": total,
+        };
+       
+        //console.log("We are wanting a picture, the art id is " + artID);
+        return this.http.post(`http://localhost:4000/art/like`, obj);
+    }
+    unlike(artID: string, total: number) {
+        let obj = 
+        {
+           "artID": artID,
+           "value": total,
+
+        };
+       
+        //console.log("We are wanting a picture, the art id is " + artID);
+        return this.http.post(`http://localhost:4000/art/unlike`, obj);
     }
     
     getArtist(artist: string) {
@@ -67,6 +92,16 @@ export class ArtService {
 
         art.imageLink = "assets/" + art.imageLink;
         return this.http.post(`http://localhost:4000/art/addart`, art);
+    }
+    editArt(art: Art, id: string) {
+        console.log("hello world");
+        art.tags = art.tagList.split(",");
+        console.log("hello world," , art.tags);
+        art._id = id;
+        console.log("hello world," , art._id);
+
+        art.imageLink = "assets/" + art.imageLink;
+        return this.http.post(`http://localhost:4000/art/edit`, art);
     }
 
 }

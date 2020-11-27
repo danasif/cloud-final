@@ -11,10 +11,12 @@ module.exports = {
     getEnrolledStudents,
     getPicture,
     getArtistPictures,
+    favorited,
+    unfavorited,
     like,
     unlike,
-    favorited,
-    unfavorited
+    edit,
+    getSearch
 }
 
 
@@ -49,6 +51,30 @@ async function favorited(req) {
 
 
 }
+
+async function like(req) {
+    const test = await Art.find({"_id":req.body.artID});
+    console.log(test);
+
+    return await Art.update({_id:req.body.artID},  {"likeTotal": req.body.value, "liked": true});
+
+}
+async function unlike(req) {
+    const test = await Art.find({"_id":req.body.artID});
+    console.log(test);
+    return await Art.update({_id:req.body.artID},   {"likeTotal": req.body.value, "liked": false});
+
+}
+async function edit(req) {
+    const test = await Art.find({"_id":req.body._id});
+    console.log(req.body);
+    console.log("Helloooooo");
+    //Art.update({_id:req.body._id},  {pieceInfo: req.body.pieceInfo}, {imageLink: req.body.imageLink});
+    return await Art.updateOne({_id:req.body._id}, { "pieceInfo" : req.body.pieceInfo, "imageLink": req.body.imageLink,  "tags": req.body.tags,  "medium": req.body.medium, "pieceName": req.body.pieceName });
+   // {medium: req.body.medium},{ pieceName: req.body.pieceName}
+  // return await Art.update({_id:req.body._id},  {pieceInfo: req.body.pieceInfo}, {imageLink: req.body.imageLink},{medium: req.body.medium}, tags: req.body.tags} );
+
+}
 async function unfavorited(req) {
     //const test = await Art.find({"_id":id});
     
@@ -62,6 +88,14 @@ async function unfavorited(req) {
 async function getArtistPictures(artist) {
     console.log("We're in here, the artist name is "+ artist);
     const test = await Art.find({'artistName':artist});
+    console.log("The response is " + test);
+    return test;
+
+
+}
+async function getSearch(word) {
+    console.log("We're in here, the word is "+ word);
+    const test = await Art.find({'tags':word});
     console.log("The response is " + test);
     return test;
 

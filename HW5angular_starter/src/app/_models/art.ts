@@ -10,11 +10,12 @@ export class Art {
   artistName: string;
   favorited: boolean
   createdDate: Date;
-  
+  liked : boolean;
   medium: string;
   pieceInfo: string;
   _id: string;
   imageLink: string;
+  likeTotal: number;
 
   }
 

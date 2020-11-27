@@ -1,18 +1,28 @@
-/* Structure */
-table {
+.art-card {
+    flex: 1;
+    box-sizing: border-box;
+    -webkit-box-flex: 1;
+    -ms-box-flex: 1;
+    -moz-box-flex: 1;
+    padding: 3px 3px 3px 3px;
+    width:350px;
+  
+  }
+  
+  .art-image {
+    
+  }
+  
+  .mat-card-header {
+    
+  
+    height: 100%;
     width: 100%;
-}
-
-.mat-form-field {
-    font-size: 14px;
-    width: 100%;
-}
-
-.attendance-spinner{
-
-    display: flex;
-    height: min-content;
-    justify-content: center;
-    align-items: center;
-
-}
+  }
+  img{
+      height: 250px;
+      width: 250px;
+  }
+  button{
+    border : hidden;
+  }
