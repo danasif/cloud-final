@@ -1,28 +1,62 @@
 .art-card {
-    flex: 1;
-    box-sizing: border-box;
-    -webkit-box-flex: 1;
-    -ms-box-flex: 1;
-    -moz-box-flex: 1;
-    padding: 3px 3px 3px 3px;
-    width:350px;
-  
-  }
-  
-  .art-image {
-    
-  }
-  
-  .mat-card-header {
-    
-  
-    height: 100%;
-    width: 100%;
-  }
-  img{
-      height: 250px;
-      width: 250px;
-  }
-  button{
-    border : hidden;
-  }
+  flex: 1;
+  box-sizing: border-box;
+  -webkit-box-flex: 1;
+  -ms-box-flex: 1;
+  -moz-box-flex: 1;
+  padding: 3px 3px 3px 3px;
+  width:350px;
+  margin:  8px;
+
+}
+
+.mat-card-actions{
+  display: row;
+  flex-direction: row !important;
+}
+img{
+    height: 250px;
+    width: 250px;
+}
+button{
+  border : hidden;
+}
+.art-list-container{
+  display: flex;
+  flex-flow: row wrap;
+
+  border-radius: 2px;
+  padding: 10px 10px 30px;
+  margin: 10px 10px 10px 10px;
+  background-color: #ffffff;
+
+}
+
+
+.card-item{
+  flex: 1;
+  padding: 3px 3px 3px 3px;
+  width:300px;
+
+}
+
+.fab-container {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  z-index: 100;
+  display: row;
+  flex-direction: row !important;
+  align-items: center;
+}
+.container{
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-radius: 2px;
+    padding: 10px 10px 30px;
+    margin: 10px 10px 10px 10px;
+    background-color: #ffffff;
+}
+
+

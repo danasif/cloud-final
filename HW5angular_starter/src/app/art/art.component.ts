@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
-import {MatDialog, MatDialogConfig} from '@angular/material';
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {Art} from '../_models/art';
 import {User} from '../_models/user';
 import {NotificationService, AuthService, SimpleService, ArtService} from '../_services';

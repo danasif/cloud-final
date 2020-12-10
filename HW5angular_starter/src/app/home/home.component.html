@@ -1,6 +1,12 @@
 <div class="art-list-container">
-<button (click)="sort()">Sort </button>
 
+
+
+<button  mat-flat-button  *ngIf="desc== false" (click)="sortDesc()" type="button" id="menu1" >Sort(Descending)</button>
+<button  mat-flat-button *ngIf="desc"  (click)="sortAsc()" type="button" id="menu1" >Sort(Ascending)</button>
+
+ 
+ 
     <!--                   TODO: you must handle the new "@Output"s from the art component-->
   <art-component class="card-item"  *ngFor="let art of arts "  [art]="art"
                     (artistPageEvent)=  " viewArtistPage($event)" (PicturePageEvent)=  "viewPicturePage($event)" (registerEvent) = "registerArt($event)"  (deleteEvent) = "deleteArt($event)"  (createAttendanceEvent) = "createAttendance($event)">
@@ -15,10 +21,6 @@
 
 
 
-<div class="fab-container"  *ngIf="isCreator">
-  <button  mat-flat-button color="primary"  matTooltip="Add new class" (click)= createArt()>
-    <i class="material-icons">add</i>
-  </button>
-  </div>
+
   
 <!--  TODO: add another version of mat-flat-button that user will only users see. Hint: use *ngIf and isCreator.-->

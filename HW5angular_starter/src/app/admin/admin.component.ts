@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import {MatTableDataSource} from '@angular/material';
+import {MatTableDataSource} from '@angular/material/table';
 import { ArtService, SimpleService} from '../_services';
 import {ActivatedRoute, Router} from '@angular/router';
 
@@ -100,6 +100,7 @@ this.route.params.subscribe(params => {
 
   viewPicturePage(id: string) {
     console.log("HIIIIII");
+    this.simpleService.id = id;
 
     this.router.navigate(['/getPicture']);
   }
@@ -109,6 +110,13 @@ this.route.params.subscribe(params => {
     // This will load the 'artcreator' component
     this.simpleService.id = id;
     this.router.navigate(['/editArt']);
+
+  }
+  createArt() {
+    // TODO:You need to use a Router instnace to navigate the user to the
+    // 'artcreator' component's route.
+    // This will load the 'artcreator' component
+    this.router.navigate(['/registerArt']);
 
   }
 }

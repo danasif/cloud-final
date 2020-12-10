@@ -17,11 +17,16 @@
         
   
 </table>  -->
+<div class="row">
 
-<img src= {{picture.imageLink}}>
+ <div class="column">
+<img  class= "main" src= {{picture.imageLink}}>
+</div>
+<div class="column">
 <img class="border1"  src= {{picture.imageLink}}>
 <img class= "border2" src= {{picture.imageLink}}>
 <p>{{picture.pieceInfo}}</p>
 
 <button (click)="artistProfile(picture.artistName)" >{{picture.artistName}}</button>
-
+</div>
+</div>

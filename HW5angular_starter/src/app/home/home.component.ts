@@ -15,7 +15,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['home.component.css']})
 export class HomeComponent implements OnInit {
   currentUser: User;
-
+ desc = false;
   arts: Art[] = [];
     constructor(
     private artService: ArtService,
@@ -43,13 +43,7 @@ export class HomeComponent implements OnInit {
         error => {this.notifService.showNotif(error, 'error'); });
   }
 
-  createArt() {
-    // TODO:You need to use a Router instnace to navigate the user to the
-    // 'artcreator' component's route.
-    // This will load the 'artcreator' component
-    this.router.navigate(['/registerArt']);
-
-  }
+ 
 
   // TODO: call this function when user's want to track attendance.
   //  Use Router's route function to navigate to the 'attendancetracker' component.
@@ -107,9 +101,8 @@ export class HomeComponent implements OnInit {
 
     this.router.navigate(['/getPicture']);
   }
-  sort(){
+  sortDesc(){
     this.arts = this.arts.sort((n1,n2) => {
-      console.log(n1.likeTotal,  " <" , n2.likeTotal );
       if (n1.likeTotal < n2.likeTotal) {
           return -1;
       }
@@ -119,7 +112,19 @@ export class HomeComponent implements OnInit {
       return 0;
   });
 
-
+  this.desc = true;
+  }
+  sortAsc(){
+    this.arts = this.arts.sort((n1,n2) => {
+      if (n1.likeTotal > n2.likeTotal) {
+          return -1;
+      }
+      if (n1.likeTotal < n2.likeTotal) {
+          return 1;
+      }
+      return 0;
+  });
+  this.desc = false;
   }
 }
 

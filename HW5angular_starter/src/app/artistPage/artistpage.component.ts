@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MatTableDataSource} from '@angular/material';
+import {MatTableDataSource} from '@angular/material/table';
 import { ArtService, SimpleService} from '../_services';
 import {ActivatedRoute, Router} from '@angular/router';
 
@@ -96,6 +96,7 @@ this.route.params.subscribe(params => {
   // }
   viewPicturePage(id: string) {
     console.log("HIIIIII");
+    this.simpleService.id = id;
 
     this.router.navigate(['/getPicture']);
   }
